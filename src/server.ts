@@ -1,8 +1,13 @@
+import 'reflect-metadata'
 import express from 'express'
+import cors from 'cors'
 import { routes } from './routes'
 
+import './database'
+
 const server = express()
-server.use(express.urlencoded({ extended:true}))
+
+server.use(cors())
 server.use(express.json())
 server.use(routes)
 
