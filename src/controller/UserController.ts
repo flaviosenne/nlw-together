@@ -9,7 +9,7 @@ class UserController {
 
         const user = await userService.execute({name, email, admin, password})
 
-        return res.json(user)
+        return res.status(201).json(user)
     }
 }
 

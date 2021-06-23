@@ -1,3 +1,4 @@
+import { BadRequest } from './../exceptions/BadRequest';
 import { getCustomRepository } from "typeorm"
 import { UserRepository } from "../repository/UserRepository"
 
@@ -12,12 +13,11 @@ class UserService {
 
         const userRepository = getCustomRepository(UserRepository)
 
-        console.log('email',email)
-        if(!email) throw new Error("emial incorreto")
+        if(!email) throw new BadRequest("email incorreto")
 
         const userAlreadyExists = await userRepository.findOne({email})
 
-        if(userAlreadyExists) throw new Error("user já existe")
+        if(userAlreadyExists) throw new BadRequest("email já existe")
 
         const user = userRepository.create({name, email, admin, password})
 
