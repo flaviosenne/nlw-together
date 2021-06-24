@@ -4,15 +4,37 @@ content-type: application/json
 
 {
     "name":"joao",
-    "email":"joao@email.com",
+    "email":"lucas@email.com",
     "admin": true,
-    "password":123
+    "password":"123"
+}
+
+### login
+POST http://localhost:3000/login
+content-type: application/json
+
+{
+
+    "email":"lucas@email.com",
+    "password":"123"
 }
 
 ### post tag
 POST http://localhost:3000/tags
 content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvYW9AZW1haWwuY29tIiwiaWF0IjoxNjI0NDk2ODI0LCJleHAiOjE2MjQ1ODMyMjQsInN1YiI6ImEyMThhNzI5LWY4NGUtNGYyZC04YTRkLTgyZmU4YzlhMDg3YyJ9.wAbq2Gz9wvUkLXoCr2EdfoKzqQitK0IKBrIKdyALef0
 
 {
     "name":"inspiração"
+}
+
+### post compliment
+POST http://localhost:3000/compliments
+content-type: application/json
+
+{
+    "message":"inspiração",
+    "tagId":"e3f4e623-b01b-4eab-b475-0b7b81e918d6",
+    "userSender":"a218a729-f84e-4f2d-8a4d-82fe8c9a087c",
+    "userReceiver":"1e36d007-9550-42e3-9406-33e092f768d1"
 }

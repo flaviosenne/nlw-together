@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { routesCompliment } from "./compliment";
 import { routesTag } from "./tag";
 import { routesUser } from "./user";
 
@@ -9,5 +10,6 @@ routes.get('/', (req, res) => {
 })
 routes.use(routesUser)
 routes.use(routesTag)
+routes.use(routesCompliment)
 
 export { routes}

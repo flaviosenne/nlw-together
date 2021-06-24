@@ -1,12 +1,13 @@
 import { BadRequest } from './../exceptions/BadRequest';
 import { getCustomRepository } from "typeorm"
 import { UserRepository } from "../repository/UserRepository"
+import bcrypt from 'bcrypt'
 
 type UserRequest = {
     name: string
     email: string
     admin?: boolean
-    password?: string
+    password: string
 }
 class UserService {
     async execute ({name, email, admin, password}: UserRequest){
@@ -19,6 +20,7 @@ class UserService {
 
         if(userAlreadyExists) throw new BadRequest("email já existe")
 
+        password = await bcrypt.hash(password, 8)
         const user = userRepository.create({name, email, admin, password})
 
         await userRepository.save(user)
