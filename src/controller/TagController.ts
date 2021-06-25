@@ -11,6 +11,15 @@ class TagController {
 
         return res.status(201).json(tag)
     }
+
+    async listAll(req: Request, res: Response){
+
+        const tagService = new TagService()
+
+        const tag = await tagService.listAll()
+
+        return res.status(200).json(tag)
+    }
 }
 
 export { TagController}

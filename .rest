@@ -3,9 +3,9 @@ POST http://localhost:3000/users
 content-type: application/json
 
 {
-    "name":"joao",
-    "email":"lucas@email.com",
-    "admin": true,
+    "name":"dani",
+    "email":"dani@email.com",
+    "admin": false,
     "password":"123"
 }
 
@@ -15,26 +15,41 @@ content-type: application/json
 
 {
 
-    "email":"lucas@email.com",
+    "email":"joao@email.com",
     "password":"123"
 }
+
+### get tag
+GET http://localhost:3000/tags
+content-type: application/json
+
 
 ### post tag
 POST http://localhost:3000/tags
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvYW9AZW1haWwuY29tIiwiaWF0IjoxNjI0NDk2ODI0LCJleHAiOjE2MjQ1ODMyMjQsInN1YiI6ImEyMThhNzI5LWY4NGUtNGYyZC04YTRkLTgyZmU4YzlhMDg3YyJ9.wAbq2Gz9wvUkLXoCr2EdfoKzqQitK0IKBrIKdyALef0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvYW9AZW1haWwuY29tIiwiaWF0IjoxNjI0NTgwMTkxLCJleHAiOjE2MjQ2NjY1OTEsInN1YiI6ImEyMThhNzI5LWY4NGUtNGYyZC04YTRkLTgyZmU4YzlhMDg3YyJ9.97KXjO1Orkus6ZTmY17YZ-vhdxI1eyB-wvdV0ScADzU
 
 {
-    "name":"inspiração"
+    "name":"foco"
 }
 
 ### post compliment
 POST http://localhost:3000/compliments
 content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvYW9AZW1haWwuY29tIiwiaWF0IjoxNjI0NTgwMTkxLCJleHAiOjE2MjQ2NjY1OTEsInN1YiI6ImEyMThhNzI5LWY4NGUtNGYyZC04YTRkLTgyZmU4YzlhMDg3YyJ9.97KXjO1Orkus6ZTmY17YZ-vhdxI1eyB-wvdV0ScADzU
 
 {
     "message":"inspiração",
     "tagId":"e3f4e623-b01b-4eab-b475-0b7b81e918d6",
-    "userSender":"a218a729-f84e-4f2d-8a4d-82fe8c9a087c",
-    "userReceiver":"1e36d007-9550-42e3-9406-33e092f768d1"
+    "userReceiver":"1e36d007-9550-42e3-9406-33e092f768d4"
 }
+
+### get compliment
+GET http://localhost:3000/compliments/user-receiver
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2FzQGVtYWlsLmNvbSIsImlhdCI6MTYyNDU4MTQ0MSwiZXhwIjoxNjI0NjY3ODQxLCJzdWIiOiIxZTM2ZDAwNy05NTUwLTQyZTMtOTQwNi0zM2UwOTJmNzY4ZDQifQ.zKoJffa6q6Q8OnCl2yFJJlgSXVsJnpFmxQBFTw10xKU
+
+### get compliment
+GET http://localhost:3000/compliments/user-sender
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvYW9AZW1haWwuY29tIiwiaWF0IjoxNjI0NTgxNDkzLCJleHAiOjE2MjQ2Njc4OTMsInN1YiI6ImEyMThhNzI5LWY4NGUtNGYyZC04YTRkLTgyZmU4YzlhMDg3YyJ9.STTBI9vmjkvft03s0fwGpaigVUgcy5xBZDWJbCOycME

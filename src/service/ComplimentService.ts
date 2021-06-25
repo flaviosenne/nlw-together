@@ -42,6 +42,36 @@ class ComplimentService {
 
         return compliment
     }
+
+    async listByUserReceiverCompliments(userId: string){
+        const complimentRepository = getCustomRepository(ComplimentRepository)
+
+        const user = await getCustomRepository(UserRepository).findOne({id: userId})
+        
+        const compliments = await complimentRepository.find({
+            where: {
+                userReceiver: user
+            },
+            relations: ['userReceiver']
+        })
+
+        return compliments
+    }
+
+    async listByUserSenderCompliments(userId: string){
+        const complimentRepository = getCustomRepository(ComplimentRepository)
+
+        const user = await getCustomRepository(UserRepository).findOne({id: userId})
+        
+        const compliments = await complimentRepository.find({
+            where: {
+                userSender: user
+            },
+            relations: ['userSender']
+        })
+
+        return compliments
+    }
 }
 
 export { ComplimentService }

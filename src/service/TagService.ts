@@ -21,6 +21,16 @@ class TagService {
         return tag
         
     }
+
+    async listAll (){
+
+        const tagRepository = getCustomRepository(TagRepository)
+
+        const tags = await tagRepository.find()
+
+        return tags.map(tag => ({...tag, name: `## :) ${tag.name} (: ##`}))
+        
+    }
 }
 
 export { TagService }

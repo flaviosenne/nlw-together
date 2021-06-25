@@ -27,6 +27,16 @@ class UserService {
 
         return user
     }
+
+    async findById(id: string){
+        const userRepository = getCustomRepository(UserRepository)
+
+        const user = await userRepository.findOne({id})
+
+        if(!user) throw new BadRequest("usuário não encontrado")
+
+        return user
+    }
 }
 
 export { UserService}
